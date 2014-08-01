@@ -14,11 +14,11 @@ class QPushButton;
 class QSplitter;
 
 
-class RenderWindow : public QWidget
+class Viewport : public QWidget
 {
 	Q_OBJECT
 public:
-	explicit RenderWindow(QWidget* parent = nullptr);
+	explicit Viewport(const int viewport_number, QWidget* parent = nullptr);
 
 	//virtual QSize sizeHint() const { return QSize(100, 100); }
 
@@ -46,7 +46,7 @@ private slots:
 	void close_viewport();
 
 private:
-	std::set<RenderWindow*> m_view_ports;
+	std::set<Viewport*> m_view_ports;
 	QSplitter* m_viewport_splitter;
 	QSplitter* m_status_splitter;
 };

@@ -22,7 +22,7 @@ MainWindow::MainWindow()
 
 	init_menubar();
 
-	RenderWindow* viewport = new RenderWindow;
+	Viewport* viewport = new Viewport(1);
 	m_view_ports.insert(viewport);
 
 	connect(viewport, SIGNAL(viewport_closed()), this, SLOT(close_viewport()));
@@ -75,7 +75,7 @@ QLayout* MainWindow::init_splitters()
 
 void MainWindow::add_viewport()
 {
-	RenderWindow* viewport = new RenderWindow;
+	Viewport* viewport = new Viewport(m_view_ports.size()+1);
 	m_view_ports.insert(viewport);
 	m_viewport_splitter->addWidget(viewport);
 
@@ -89,17 +89,17 @@ void MainWindow::close_viewport()
 	QObject* object = sender();
 	if (object != nullptr)
 	{
-		RenderWindow* viewport = static_cast<RenderWindow*>(object);
+		Viewport* viewport = static_cast<Viewport*>(object);
 		m_view_ports.erase(viewport);
 		delete viewport;
 	}
 }
 
 
-RenderWindow::RenderWindow(QWidget *parent)
+Viewport::Viewport(const int viewport_number, QWidget *parent)
 	: QWidget(parent)
 	, m_draw_area(new QLabel("foo", this))
-	, m_title_bar(new ViewportTitleBar)
+	, m_title_bar(new ViewportTitleBar(viewport_number))
 {
 	QVBoxLayout* main_layout = new QVBoxLayout;
 	main_layout->setSpacing(0);
