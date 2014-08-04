@@ -22,18 +22,12 @@ MainWindow::MainWindow()
 
 	init_menubar();
 
-	Viewport* viewport = new Viewport(1);
-	m_view_ports.insert(viewport);
-
-	connect(viewport, SIGNAL(viewport_closed()), this, SLOT(close_viewport()));
-
 	QWidget* main_widget = new QWidget(this);
-
-	QLayout* layout = init_splitters();
-
+	QLayout* layout = init_layout();
 	main_widget->setLayout(layout);
-
 	setCentralWidget(main_widget);
+
+	add_viewport();
 }
 
 void MainWindow::init_menubar()
@@ -50,12 +44,11 @@ void MainWindow::init_menubar()
 	setMenuBar(menubar);
 }
 
-QLayout* MainWindow::init_splitters()
+QLayout* MainWindow::init_layout()
 {
 	QVBoxLayout* layout = new QVBoxLayout;
 	QWidget* viewport_widget = new QWidget;
 
-	m_viewport_layout->addWidget(*m_view_ports.begin());
 	viewport_widget->setLayout(m_viewport_layout);
 
 	m_status_splitter->setHandleWidth(30);

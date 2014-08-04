@@ -40,7 +40,7 @@ public:
 
 private:
 	void init_menubar();
-	QLayout* init_splitters();
+	QLayout* init_layout();
 	
 private slots:
 	void add_viewport();
