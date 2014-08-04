@@ -2,11 +2,13 @@ set(SOURCES
 	main.cpp
 	renderdemo.cpp
 	Splitter.cpp
+	Viewport.cpp
 	ViewportTitleBar.cpp)
 
 set(HEADERS
 	renderdemo.h
 	Splitter.h
+	Viewport.h
 	ViewportTitleBar.h)
 
 find_package(Qt5Widgets REQUIRED)
