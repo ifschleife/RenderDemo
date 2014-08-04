@@ -8,7 +8,7 @@
 
 ViewportTitleBar::ViewportTitleBar(const int viewport_number, QWidget* parent /* = nullptr */)
 	: QWidget(parent)
-	, m_scene_label(new QLabel)
+	, m_scene_label(new QLabel(tr("Empty")))
 {
 	m_scene_label->setContentsMargins(5, 0, 5, 0);
 
@@ -55,5 +55,6 @@ void ViewportTitleBar::select_scene_dialog()
 		QFileInfo file_info = filenames[0];
 		m_scene_label->setText(file_info.baseName());
 		m_scene_label->setToolTip(filenames[0]);
+		emit scene_changed(file_info);
 	}
 }

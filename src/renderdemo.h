@@ -7,6 +7,7 @@
 
 #include <set>
 
+class QFileInfo;
 class QHBoxLayout;
 class QLabel;
 class QScrollArea;
@@ -26,6 +27,9 @@ public:
 signals:
 	void viewport_closed();
 
+private slots:
+	void load_scene(const QFileInfo& file_info);
+
 private:
 	QLabel* m_draw_area;
 	ViewportTitleBar* m_title_bar;
@@ -44,10 +48,10 @@ private:
 	
 private slots:
 	void add_viewport();
-	void close_viewport();
+	void remove_viewport();
 
 private:
-	std::set<Viewport*> m_view_ports;
+	std::set<Viewport*> m_viewports;
 	QHBoxLayout* m_viewport_layout;
 	QSplitter* m_status_splitter;
 };

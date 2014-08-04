@@ -3,6 +3,7 @@
 #include <QWidget>
 
 
+class QFileInfo;
 class QLabel;
 
 
@@ -16,6 +17,7 @@ public:
 signals:
 	void close_button_clicked();
 	void maximize_button_clicked();
+	void scene_changed(const QFileInfo& file_info);
 
 private slots:
 	void select_scene_dialog();
