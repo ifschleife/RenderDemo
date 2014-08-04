@@ -7,6 +7,7 @@
 
 #include <set>
 
+class QHBoxLayout;
 class QLabel;
 class QScrollArea;
 class QGroupBox;
@@ -47,6 +48,6 @@ private slots:
 
 private:
 	std::set<Viewport*> m_view_ports;
-	QSplitter* m_viewport_splitter;
+	QHBoxLayout* m_viewport_layout;
 	QSplitter* m_status_splitter;
 };

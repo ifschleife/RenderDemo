@@ -15,7 +15,7 @@
 
 MainWindow::MainWindow()
 	: m_view_ports()
-	, m_viewport_splitter(new Splitter(Qt::Horizontal))
+	, m_viewport_layout(new QHBoxLayout)
 	, m_status_splitter(new Splitter(Qt::Vertical))
 {
 	setGeometry(100, 100, 1200, 800);
@@ -53,20 +53,15 @@ void MainWindow::init_menubar()
 QLayout* MainWindow::init_splitters()
 {
 	QVBoxLayout* layout = new QVBoxLayout;
-	QVBoxLayout* splitter_layout = new QVBoxLayout;
-	QWidget* splitter_widget = new QSplitter;
+	QWidget* viewport_widget = new QWidget;
 
-	m_viewport_splitter->setHandleWidth(30);
-	m_viewport_splitter->setChildrenCollapsible(false);
-	m_viewport_splitter->addWidget(*m_view_ports.begin());
-
-	splitter_layout->addWidget(m_viewport_splitter);
-	splitter_widget->setLayout(splitter_layout);
+	m_viewport_layout->addWidget(*m_view_ports.begin());
+	viewport_widget->setLayout(m_viewport_layout);
 
 	m_status_splitter->setHandleWidth(30);
 	m_status_splitter->setChildrenCollapsible(false);
 	m_status_splitter->setOrientation(Qt::Vertical);
-	m_status_splitter->addWidget(splitter_widget);
+	m_status_splitter->addWidget(viewport_widget);
 	m_status_splitter->addWidget(new QLabel("Statistics"));
 
 	layout->addWidget(m_status_splitter);
@@ -77,7 +72,7 @@ void MainWindow::add_viewport()
 {
 	Viewport* viewport = new Viewport(m_view_ports.size()+1);
 	m_view_ports.insert(viewport);
-	m_viewport_splitter->addWidget(viewport);
+	m_viewport_layout->addWidget(viewport);
 
 	connect(viewport, SIGNAL(viewport_closed()), this, SLOT(close_viewport()));
 }
