@@ -2,9 +2,6 @@
 
 #include <QtWidgets/QApplication>
 
-#define QT_USE_FAST_CONCATENATION
-#define QT_USE_FAST_OPERATOR_PLUS
-
 
 #if defined(_WIN32) && defined(_DEBUG)
 #include <Windows.h>
