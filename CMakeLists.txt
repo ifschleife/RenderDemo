@@ -14,4 +14,4 @@ endif()
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
-add_subdirectory(RenderDemo)
+add_subdirectory(src)
