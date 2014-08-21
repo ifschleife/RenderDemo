@@ -20,7 +20,7 @@ public:
 
 protected:
 	virtual bool eventFilter(QObject* object, QEvent* event) override;
-	virtual void SplitterHandle::paintEvent(QPaintEvent* event) override;
+	virtual void paintEvent(QPaintEvent* event) override;
 
 private:
 	QColor m_triangle_color;
