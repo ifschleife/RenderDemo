@@ -9,6 +9,8 @@ if(WIN32)
 	endif()
 
 	set(CMAKE_PREFIX_PATH "C://Program Files (x86)//Windows Kits//8.0//Lib//win8//um//x64" ${CMAKE_PREFIX_PATH})
+elseif(UNIX)
+	set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 endif()
 
 set(CMAKE_AUTOMOC ON)
