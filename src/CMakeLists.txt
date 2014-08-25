@@ -2,13 +2,14 @@ set(SOURCES
 	main.cpp
 	renderdemo.cpp
 	Splitter.cpp
-	Viewport.cpp
+	ViewportPane.cpp
 	ViewportTitleBar.cpp)
 
 set(HEADERS
 	renderdemo.h
 	Splitter.h
 	Viewport.h
+    ViewportPane.h
 	ViewportTitleBar.h)
 
 #cmake 3.0 only:

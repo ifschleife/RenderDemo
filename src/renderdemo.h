@@ -7,7 +7,7 @@
 
 class QHBoxLayout;
 class QSplitter;
-class Viewport;
+class ViewportPane;
 
 
 class MainWindow : public QMainWindow
@@ -25,7 +25,7 @@ private slots:
 	void remove_viewport();
 
 private:
-	std::set<Viewport*> m_viewports;
+	std::set<ViewportPane*> m_viewports;
 	QHBoxLayout* m_viewport_layout;
 	QSplitter* m_status_splitter;
 };

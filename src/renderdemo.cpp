@@ -1,6 +1,6 @@
 #include "renderdemo.h"
 #include "Splitter.h"
-#include "Viewport.h"
+#include "ViewportPane.h"
 
 #include <QAction>
 #include <QFileInfo>
@@ -63,7 +63,7 @@ QLayout* MainWindow::init_layout()
 
 void MainWindow::add_viewport()
 {
-	Viewport* viewport = new Viewport(m_viewports.size()+1);
+	ViewportPane* viewport = new ViewportPane(m_viewports.size()+1);
 	m_viewports.insert(viewport);
 	m_viewport_layout->addWidget(viewport);
 
@@ -76,7 +76,7 @@ void MainWindow::remove_viewport()
 	QObject* object = sender();
 	if (object != nullptr)
 	{
-		Viewport* viewport = static_cast<Viewport*>(object);
+		ViewportPane* viewport = static_cast<ViewportPane*>(object);
 		m_viewports.erase(viewport);
 		delete viewport;
 	}
