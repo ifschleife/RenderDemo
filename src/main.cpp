@@ -1,6 +1,7 @@
 #include "renderdemo.h"
 
 #include <QtWidgets/QApplication>
+#include <QFile>
 
 
 #if defined(_WIN32) && defined(_DEBUG)
@@ -64,8 +65,16 @@ int main(int argc, char *argv[])
 
 	QApplication a(argc, argv);
 
+	QFile file(":/styles/window.qss");
+	if (file.open(QIODevice::ReadOnly | QIODevice::Text))
+	{
+		a.setStyleSheet(file.readAll());
+		file.close();
+	}
+
 	MainWindow window;
 	window.show();
 
 	return a.exec();
 }
+

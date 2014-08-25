@@ -10,12 +10,13 @@
 #include <QMenuBar>
 #include <QMenu>
 #include <QSizePolicy>
+#include <QSplitter>
 
 
 MainWindow::MainWindow()
 	: m_viewports()
 	, m_viewport_layout(new QHBoxLayout)
-	, m_status_splitter(new Splitter(Qt::Vertical))
+	, m_status_splitter(new QSplitter(Qt::Vertical))
 {
 	setGeometry(100, 100, 1200, 800);
 
@@ -50,7 +51,7 @@ QLayout* MainWindow::init_layout()
 
 	viewport_widget->setLayout(m_viewport_layout);
 
-	m_status_splitter->setHandleWidth(30);
+	//m_status_splitter->setHandleWidth(30);
 	m_status_splitter->setChildrenCollapsible(false);
 	m_status_splitter->setOrientation(Qt::Vertical);
 	m_status_splitter->addWidget(viewport_widget);
@@ -80,3 +81,4 @@ void MainWindow::remove_viewport()
 		delete viewport;
 	}
 }
+
