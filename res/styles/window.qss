@@ -1,11 +1,8 @@
-QMainWindow
+QMainWindow, QPushButton, QMenuBar
 {
-    background-color: rgb(255, 255, 255);
+    background-color: white;
 }
-QPushButton
-{
-    background-color: rgb(255, 255, 255);
-}
+
 QSplitter::handle
 {
     height: 3px;
@@ -13,16 +10,9 @@ QSplitter::handle
 }
 QSplitter::handle::hover
 {
-    height: 3px;
     background-color: black;
 }
 QSplitter::handle::pressed
 {
-    border: 2px solid white;
-    background-color: darkgray;
-}
-QSplitter::handle::horizontal::hover
-{
-    height: 20px;
-    color: red;
+    background-color: black;
 }
