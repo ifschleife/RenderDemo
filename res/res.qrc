@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/">
+        <file>styles/window.qss</file>
+        <file>icons/dual_viewports.png</file>
+        <file>icons/quad_viewports.png</file>
+        <file>icons/single_viewport.png</file>
+    </qresource>
+</RCC>
