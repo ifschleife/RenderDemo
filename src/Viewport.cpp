@@ -1,13 +1,11 @@
 #include "Viewport.h"
+#include "ui_Viewport.h"
 
-#include "ViewportTitleBar.h"
-
-
-
-#include <vector>
-
-
-void Viewport::resizeEvent(QResizeEvent* event)
+Viewport::Viewport(QWidget* parent)
+    : QWidget{parent}
+    , _ui{new Ui::Viewport}
 {
-	emit resized();
+    _ui->setupUi(this);
 }
+
+Viewport::~Viewport() { }

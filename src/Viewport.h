@@ -1,24 +1,20 @@
 #pragma once
 
-#include <QLabel>
+#include <QWidget>
+#include <memory>
 
+namespace Ui {
+class Viewport;
+}
 
-class Viewport : public QLabel
+class Viewport : public QWidget
 {
-	Q_OBJECT
+    Q_OBJECT
 
 public:
-	explicit Viewport(const QString text, QWidget* parent)
-		: QLabel(text, parent)
-	{
-	}
+    explicit Viewport(QWidget* parent);
+    ~Viewport();
 
-signals:
-	void resized();
-
-protected:
-	virtual void resizeEvent(QResizeEvent* event)
-	{
-		emit resized();
-	}
+private:
+    std::unique_ptr<Ui::Viewport> _ui;
 };
