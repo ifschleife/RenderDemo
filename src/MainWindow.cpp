@@ -4,6 +4,8 @@
 
 #include <assert.h>
 #include <QtDebug>
+#include <QKeyEvent>
+#include <QKeySequence>
 
 
 MainWindow::MainWindow(QWidget* parent)
@@ -21,10 +23,34 @@ MainWindow::MainWindow(QWidget* parent)
     group->addAction(_ui->actionSingleViewport);
     group->addAction(_ui->actionDualViewports);
     group->addAction(_ui->actionQuadViewports);
+
+    installEventFilter(this);
 }
 
 MainWindow::~MainWindow() { }
 
+
+bool MainWindow::eventFilter(QObject* object, QEvent* event)
+{
+    if (object == this)
+    {
+        if (event->type() == QEvent::KeyPress)
+        {
+            QKeyEvent* key_event = static_cast<QKeyEvent*>(event);
+            if (QKeySequence::Close == key_event)
+            {
+                qDebug() << "Exiting...";
+                QApplication::quit();
+            }
+        }
+
+        return false;
+    }
+    else
+    {
+        return QMainWindow::eventFilter(object, event);
+    }
+}
 
 void MainWindow::on_actionSingleViewport_triggered()
 {
