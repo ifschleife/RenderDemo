@@ -1,18 +1,18 @@
-QMainWindow, QPushButton, QMenuBar
+QMainWindow, QPushButton, QMenuBar, QToolBar
 {
-    background-color: white;
+	background-color: rgb(255, 255, 255);
 }
 
 QSplitter::handle
 {
-    height: 3px;
-    background-color: lightgray;
+	height: 3px;
+	background-color: lightgray;
 }
 QSplitter::handle::hover
 {
-    background-color: black;
+	background-color: black;
 }
 QSplitter::handle::pressed
 {
-    background-color: black;
+	background-color: black;
 }
