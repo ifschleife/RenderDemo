@@ -24,8 +24,8 @@ private slots:
     void on_actionQuadViewports_triggered();
 
 private:
-    void hide_viewport(const u_int32_t viewport_index);
-    void show_viewport(const u_int32_t viewport_index);
+    void hide_viewport(const std::vector<Viewport*>::size_type viewport_index);
+    void show_viewport(const std::vector<Viewport*>::size_type viewport_index);
 
 private:
     std::unique_ptr<Ui::MainWindow> _ui;

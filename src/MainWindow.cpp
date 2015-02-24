@@ -48,7 +48,7 @@ void MainWindow::on_actionQuadViewports_triggered()
     show_viewport(3);
 }
 
-void MainWindow::hide_viewport(const u_int32_t viewport_index)
+void MainWindow::hide_viewport(const std::vector<Viewport*>::size_type viewport_index)
 {
     assert(nullptr != _all_viewports[viewport_index]);
 
@@ -56,7 +56,7 @@ void MainWindow::hide_viewport(const u_int32_t viewport_index)
     _all_viewports[viewport_index]->hide();
 }
 
-void MainWindow::show_viewport(const u_int32_t viewport_index)
+void MainWindow::show_viewport(const std::vector<Viewport*>::size_type viewport_index)
 {
     assert(nullptr != _all_viewports[viewport_index]);
 
