@@ -5,7 +5,7 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_HOME_DIRECTORY}/bin)
 
 if(WIN32)
 	if(MSVC11)
-		set(CMAKE_PREFIX_PATH "C://Qt//5.3//msvc2012_opengl" ${CMAKE_PREFIX_PATH})
+		set(CMAKE_PREFIX_PATH "C://Qt//Qt5.4.0//5.4//msvc2012_opengl" ${CMAKE_PREFIX_PATH})
 	endif()
 
 	set(CMAKE_PREFIX_PATH "C://Program Files (x86)//Windows Kits//8.0//Lib//win8//um//x64" ${CMAKE_PREFIX_PATH})
